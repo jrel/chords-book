@@ -1,22 +1,9 @@
 import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import ListItemAvatar from '@material-ui/core/ListItemAvatar'
-import React from 'react'
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
-import NextLink from 'next/link'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { NextPage } from 'next'
-import Avatar from '@material-ui/core/Avatar'
+import React from 'react'
 
-interface Props {
-  photo: {
-    albumId: number
-    id: number
-    title: string
-    url: string
-    thumbnailUrl: string
-  }
-}
+interface Props {}
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,12 +13,12 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 )
-const Index: NextPage<Props> = ({ photo }) => {
+const Index: NextPage<Props> = () => {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <List>
-        {photos.map((photo) => (
+        {/* {photos.map((photo) => (
           <NextLink key={photo.id.toString()} href={`/photos/${photo.id}`}>
             <ListItem button component="a">
               <ListItemAvatar>
@@ -40,16 +27,13 @@ const Index: NextPage<Props> = ({ photo }) => {
               <ListItemText primary={photo.title} />
             </ListItem>
           </NextLink>
-        ))}
+        ))} */}
       </List>
     </div>
   )
 }
-Index.getInitialProps = async ({req}) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/photos/${req.}`)
-  return {
-    photo: await res.json(),
-  }
+Index.getInitialProps = async () => {
+  return {}
 }
 
 export default Index
