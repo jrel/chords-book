@@ -82,11 +82,7 @@ export default {
         borderRadius: 4,
       },
     },
-    MuiDivider: {
-      root: {
-        backgroundColor: '#404854',
-      },
-    },
+
     MuiListItemText: {
       primary: {
         fontWeight: theme.typography.fontWeightMedium,
