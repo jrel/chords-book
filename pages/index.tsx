@@ -3,7 +3,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import React, { useMemo, useState } from 'react'
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles'
-import { NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import {
   Collapse,
@@ -134,9 +134,11 @@ const Index: NextPage<Props> = ({ categories }) => {
     </div>
   )
 }
-Index.getInitialProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
-    categories: ['a', 'b', 'c'],
+    props: {
+      categories: ['a', 'b', 'c'],
+    },
   }
 }
 
